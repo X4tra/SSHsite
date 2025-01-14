@@ -1,0 +1,95 @@
+/* General Styling */
+body {
+    background-color: #1a1a1a;
+    color: #d0d9f2;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    background-color: #0a3d62;
+    text-align: center;
+    padding: 5%;
+    color: white;
+}
+
+header h1 {
+    font-size: 3vw;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Main Content Styling */
+main {
+    padding: 5%;
+}
+
+/* Step Styling */
+.step {
+    margin-bottom: 5%;
+}
+
+.step h2 {
+    font-size: 2.5vw;
+    color: #4da8da;
+}
+
+.step p {
+    font-size: 1.5vw;
+    line-height: 1.5;
+}
+
+.step pre {
+    background-color: #252525;
+    color: #d0d9f2;
+    padding: 2%;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 1.3vw;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #252525;
+    padding: 20px;
+    margin: 20px auto;
+    width: fit-content;
+    border-radius: 5px;
+
+}
+.image-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Horizontal Rule Styling */
+hr {
+    border: none;
+    border-top: 2px solid #4da8da;
+    margin: 5% 0;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    background-color: #0a3d62;
+    padding: 3%;
+    color: white;
+}
+
+/* Responsive Text Adjustments */
+@media screen and (max-width: 768px) {
+    .step h2 {
+        font-size: 4vw;
+    }
+
+    .step p,
+    .step pre {
+        font-size: 2.5vw;
+    }
+}

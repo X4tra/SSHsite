@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Up SSH Server</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>How to Set Up an SSH Server using Ubuntu Server</h1>
+		<p style="font-size: 1.5vw; color: #4da8da; margin-top: 0.5em;">by Mikołaj Sołtysiński (257202)</p>
+    </header>
+    <main>
+        <!-- Step 1 -->
+        <div class="step">
+            <h2>Step 1: Download Ubuntu Server ISO</h2>
+            <p>Download the <a href="https://ubuntu.com/download/server">Ubuntu Server ISO</a> from the official website, load it into your virtual machine, and start the machine.</p>
+        </div>
+        <hr>
+        <!-- Step 2 -->
+        <div class="step">
+            <h2>Step 2: Install SSH Server Package During Installation</h2>
+            <p>Proceed through the Ubuntu installation process and choose the option to install the openssh-server.</p>
+            <div class="image-container">
+                <img src="images/step2.png" alt="Step 2 Screenshot">
+            </div>
+        </div>
+        <hr>
+        <!-- Step 3 -->
+        <div class="step">
+            <h2>Step 3: Verify if SSH is Running</h2>
+            <p>Check if the SSH service is running:</p>
+            <pre><code>sudo systemctl status ssh</code></pre>
+            <p>If it is not running, start it with:</p>
+            <pre><code>sudo systemctl enable ssh && sudo systemctl start ssh</code></pre>
+            <div class="image-container">
+                <img src="images/step3.png" alt="Step 3 Screenshot">
+            </div>
+        </div>
+        <hr>
+        <!-- Step 4 -->
+        <div class="step">
+            <h2>Step 4: Edit SSH Configuration</h2>
+            <p>Edit the SSH configuration file to make necessary changes:</p>
+            <pre><code>sudo nano /etc/ssh/sshd_config</code></pre>
+            <p>While you are there take a look at the port used by SSH (Default is 22)</p>
+            <p>Save the file and exit the editor after making your changes.</p>
+            <div class="image-container">
+                <img src="images/step4.png" alt="Step 4 Screenshot">
+            </div>
+        </div>
+        <hr>
+        <!-- Step 5 -->
+        <div class="step">
+            <h2>Step 5: Check IP Address</h2>
+            <p>Find the server's IP address to use for SSH connections:</p>
+            <pre><code>hostname -I</code></pre>
+            <p>Note the IP address for later use when connecting from another machine.</p>
+            <div class="image-container">
+                <img src="images/step5.png" alt="Step 5 Screenshot">
+            </div>
+        </div>
+        <!-- Step 6 -->
+        <div class="step">
+            <h2>Step 6: Add a Guest Account</h2>
+            <p>Create a new guest account and set a password:</p>
+            <pre><code>sudo adduser guest</code></pre>
+            <pre><code>sudo passwd guest</code></pre>
+            <p>Type the new password twice.</p>
+            <div class="image-container">
+                <img src="images/step6.png" alt="Step 6 Screenshot">
+            </div>
+        </div>
+        <hr>
+        <!-- Step 7 -->
+        <div class="step">
+            <h2>Step 7: Set Up SSH Client on Another Machine</h2>
+            <p>Ensure the SSH client package is installed on another Linux virtual machine:</p>
+            <pre><code>sudo apt install openssh-client</code></pre>
+        </div>
+        <hr>
+        <!-- Step 8 -->
+        <div class="step">
+            <h2>Step 8: Connect to the SSH Server</h2>
+            <p>Use the following command to connect to the remote server:</p>
+            <pre><code>ssh &lt;username&gt;@&lt;server-ip&gt;</code></pre>
+            <p>If you have set a different port use:</p>
+            <pre><code>ssh &lt;username&gt;@&lt;server-ip&gt; -p &lt;port&gt;</code></pre>
+            <div class="image-container">
+                <img src="images/step8.png" alt="Step 8 Screenshot">
+            </div>
+        </div>
+        <hr>
+        <!-- Step 9 -->
+        <div class="step">
+            <h2>Step 9 (Optional): Use PuTTY to connect from windows</h2>
+            <p>Download the PuTTY software from the official site.</p>
+            <p>Run it and in the Host Name put:</p>
+            <pre><code>&lt;username&gt;@&lt;server-ip&gt;</code></pre>
+            <p>Then click on open to connect to your server.</p>
+            <div class="image-container">
+                <img src="images/step9.png" alt="Step 9 Screenshot">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; SSH Guide - Author Mikołaj Sołtysiński IFE CS4 257202</p>
+    </footer>
+</body>
+</html>
